@@ -1,14 +1,17 @@
 [user]
-	name = Ryan Bates
-	email = ryan@railscasts.com
+	name = Ben Erickson
+	email = ben@benerickson.com
 [alias]
 	co = checkout
+	st = status
+	ci = commit
+	br = branch
+[apply]
+	whitespace = nowarn
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/rbates/.gitignore
-	editor = mate -w
-[apply]
-	whitespace = nowarn
+	editor = /usr/bin/mate -w
+	excludesfile = /Users/bdericks/.gitignore
