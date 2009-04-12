@@ -1,11 +1,32 @@
+# misc
+alias man='LC_ALL=C LANG=C man'
+alias f=finger
+alias dmesg="sudo dmesg"
+alias mv='nocorrect mv'			# no spelling correction on mv
+alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
+alias mkcd="nocorrect mkcd"
+alias rm="nocorrect rm -ir"
+alias j=jobs
+alias md='mkdir -p'
+alias rd='rmdir'
+alias pu='pushd'
+alias tsl="tail -f /var/log/syslog"
+alias df="df -hT"
+alias ping="ping -c4"
+alias df="df -h"
+alias grep="grep --color=auto"
+
 # cd
 alias ..='cd ..'
+alias cd..='cd ..'
 
 # ls
-alias ls="ls -F"
+alias ls="ls -FG"
 alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
+alias lsd='ls -ld *(-/DN)'  # show only directories
 
 # git
 alias gl='git pull'
