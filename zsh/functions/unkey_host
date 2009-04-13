@@ -1,0 +1,8 @@
+unkey_host() {
+   if [[ -z "$1" ]] ; then
+      echo "usage: \e[1;36munkey_host \e[1;0m< host >"
+      echo "       Removes the specified host from ssh known host list"
+   else
+      sed -i -e "/$1/d" $HOME/.ssh/known_hosts
+   fi
+}
