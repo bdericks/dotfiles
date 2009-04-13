@@ -1,12 +1,21 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
+
+# ssh config
+export SSHAGENT=/usr/bin/ssh-agent
+export SSHAGENTARGS="-s"
+if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+        eval `$SSHAGENT $SSHAGENTARGS`
+  trap "kill $SSH_AGENT_PID" 0
 fi
 
 export EDITOR='mate -w'
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
+export PATH="~/.bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export HOSTNAME="$(uname -n)"
+export HOSTTYPE="$(uname -m)"
+export COLORTERM=yes
+export CC=gcc
+export PAGER=/usr/bin/less
+export PGDATA='/usr/local/pgsql/data'
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -15,6 +24,16 @@ autoload -U ~/.zsh/functions/*(:t)
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
+
+# Set/unset  shell options
+setopt   notify globdots correct pushdtohome cdablevars autolist
+setopt   correctall autocd recexact longlistjobs
+setopt   autoresume histignoredups pushdsilent noclobber
+setopt   autopushd pushdminus extendedglob rcquotes mailwarning
+setopt ALWAYS_TO_END       # Move to the end on complete completion
+setopt MULTIOS             # Allow Multiple pipes
+setopt COMPLETE_IN_WORD    # complete commands anywhere in the word
+setopt LIST_ROWS_FIRST     # Row orientation for menu
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -25,7 +44,7 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
-setopt CORRECT
+setopt CORRECT # command correction
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
