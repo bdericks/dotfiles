@@ -1,3 +1,4 @@
+. ~/.zsh/prompt
 . ~/.zsh/config
 . ~/.zsh/aliases
 . ~/.zsh/completion
