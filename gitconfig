@@ -13,5 +13,5 @@
 	status = auto
 	branch = auto
 [core]
-	editor = /usr/bin/mate -w
+	editor = /Applications/Emacs.app/Contents/MacOS/Emacs
 	excludesfile = /Users/bdericks/.gitignore
